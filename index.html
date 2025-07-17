@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感情絵文字アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Face-api.jsライブラリの読み込み -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.2/dist/face-api.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>表情から感情を読み取る絵文字アプリ</h1>
+        
+        <div class="status" id="status">モデルを読み込み中...</div>
+        
+        <div class="app-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <video id="video" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                    <div class="emoji-container" id="emoji-container"></div>
+                </div>
+                
+                <div class="controls">
+                    <button id="start-button">カメラ開始</button>
+                    <button id="stop-button">カメラ停止</button>
+                </div>
+            </div>
+            
+            <div class="emotion-info">
+                <h2>検出された感情:</h2>
+                <div id="emotion-result">まだ検出されていません</div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>使い方:</h3>
+            <ol>
+                <li>「カメラ開始」ボタンをクリックしてカメラを起動</li>
+                <li>顔を画面に向けて表情を作る</li>
+                <li>アプリがあなたの表情から感情を検出し、対応する絵文字を表示</li>
+                <li>「カメラ停止」ボタンでカメラを停止</li>
+            </ol>
+        </div>
+        
+        <div class="snapshot-container">
+            <button id="snapshot-button">スナップショット撮影</button>
+            <div class="snapshots" id="snapshots"></div>
+        </div>
+    </div>
+</body>
+</html>

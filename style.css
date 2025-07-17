@@ -1,0 +1,357 @@
+/* 全体のスタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* アプリコンテンツのレイアウト */
+.app-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.video-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4169e1;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #4169e1;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #4169e1;
+}
+
+/* ステータス表示 */
+.status {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #e6f2ff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ビデオコンテナ */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    margin: 0 0 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #000;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 絵文字コンテナ */
+.emoji-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 40px;
+    text-shadow: 0 0 5px white;
+}
+
+/* コントロールボタン */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4169e1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+
+/* 感情情報 */
+.emotion-info {
+    flex: 1;
+    min-width: 320px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#emotion-result {
+    padding: 10px;
+    background-color: #e6f2ff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+.emotion-result-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.emotion-name {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.emotion-emoji {
+    font-size: 30px;
+}
+
+.emotion-probability {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.probability-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.probability-fill {
+    height: 100%;
+    background-color: #4169e1;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.probability-text {
+    font-size: 16px;
+    color: #333;
+}
+
+.all-emotions-title {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #4169e1;
+}
+
+.all-emotions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.emotion-item {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.emotion-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.emotion-item-name {
+    font-size: 16px;
+}
+
+.emotion-item-emoji {
+    font-size: 20px;
+}
+
+.emotion-item-probability {
+    display: flex;
+    flex-direction: column;
+}
+
+.emotion-item .probability-bar {
+    height: 15px;
+    margin-bottom: 3px;
+}
+
+.emotion-item .probability-text {
+    font-size: 14px;
+    text-align: right;
+}
+
+/* 使い方 */
+.instructions {
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+/* スナップショット */
+.snapshot-container {
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#snapshot-button {
+    display: block;
+    margin: 0 auto 15px;
+    background-color: #2ecc71;
+}
+
+#snapshot-button:hover {
+    background-color: #27ae60;
+}
+
+.snapshots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.snapshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.snapshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.snapshot .emoji-overlay {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .app-content {
+        flex-direction: column;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    button {
+        width: 80%;
+    }
+    
+    .button-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .video-container {
+        height: 360px;
+        margin: 0 auto 20px;
+    }
+    
+    .emoji-display {
+        font-size: 40px;
+        width: 60px;
+        height: 60px;
+    }
+}
