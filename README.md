@@ -38,7 +38,7 @@
 
 ```bash
 # Python 3の場合
-python -m http.server 8000
+python3 -m http.server 8000
 
 # Python 2の場合
 python -m SimpleHTTPServer 8000
